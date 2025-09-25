@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "../styles/LoginPage.css";
 import turfLogo from "../images/kindpng_3887261.png"; // Turf logo
+import { useNavigate } from "react-router-dom"; // <-- useNavigate
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate(); // <-- hook
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -13,7 +15,7 @@ function LoginPage() {
   };
 
   const handleForgotPassword = () => {
-    alert("Redirecting to forgot password...");
+    navigate("/forgot-password");
   };
 
   return (

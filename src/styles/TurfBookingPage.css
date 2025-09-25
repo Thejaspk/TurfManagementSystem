@@ -1,0 +1,75 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.booking-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to top, #56ab2f, #a8e063); /* Turf gradient */
+}
+
+.booking-card {
+  background: #ffffff;
+  padding: 40px 35px;
+  border-radius: 20px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.booking-title {
+  font-size: 26px;
+  color: #27ae60;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.booking-form label {
+  margin-top: 12px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+.booking-form select,
+.booking-form input[type="date"] {
+  padding: 12px;
+  border: 2px solid #27ae60;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+}
+
+.booking-form select:focus,
+.booking-form input:focus {
+  border-color: #1e8449;
+}
+
+.booking-button {
+  padding: 14px;
+  margin-top: 20px;
+  background-color: #27ae60;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.booking-button:hover {
+  background-color: #1e8449;
+  transform: scale(1.05);
+}
