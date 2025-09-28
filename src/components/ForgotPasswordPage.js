@@ -7,11 +7,28 @@ function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Password reset email:", email);
-    alert("Password reset link sent to your email!");
-    navigate("/"); // redirect back to login page
+    try {
+      const response = await fetch(
+        "http://localhost:8080/api/auth/forgot-password",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        }
+      );
+
+      if (response.ok) {
+        alert("Password reset link sent to your email!");
+        navigate("/");
+      } else {
+        alert("Email not found");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong");
+    }
   };
 
   return (

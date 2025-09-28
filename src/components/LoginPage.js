@@ -2,16 +2,37 @@ import React, { useState } from "react";
 import "../styles/LoginPage.css";
 import turfLogo from "../images/kindpng_3887261.png"; // Turf logo
 import { useNavigate } from "react-router-dom"; // <-- useNavigate
+import axios from "axios";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate(); // <-- hook
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Logging in:", username, password);
-    // TODO: connect with backend API
+    try {
+      // call API Gateway login endpoint
+      const response = await axios.post(
+        "http://localhost:8080/api/auth/login",
+        {
+          username,
+          password,
+        }
+      );
+
+      // JWT returned by User Service through Gateway
+      const token = response.data.token;
+
+      // save token in localStorage for later requests
+      localStorage.setItem("jwtToken", token);
+
+      alert("Login successful!");
+      navigate("/home"); // redirect to home page
+    } catch (error) {
+      console.error(error);
+      alert("Invalid username or password");
+    }
   };
 
   const handleForgotPassword = () => {

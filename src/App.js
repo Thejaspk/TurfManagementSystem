@@ -6,6 +6,7 @@ import HomePage from "./components/HomePage";
 import TurfBookingPage from "./components/TurfBookingPage";
 import ViewBookingsPage from "./components/ViewBookingsPage";
 import ManageProfilePage from "./components/ManageProfilePage";
+import ResetPasswordPage from "./components/ResetPasswordPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           path="/home/manage-profile-page"
           element={<ManageProfilePage />}
         />
+        <Route path="/reset-password" element={<ResetPasswordPage />} />
       </Routes>
     </Router>
   );
